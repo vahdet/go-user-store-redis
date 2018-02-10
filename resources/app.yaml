@@ -1,0 +1,12 @@
+grpc.port: ":50051"
+# The Data Source Name for the database
+# Make sure you override this in production with the environment variable: RESTFUL_DSN
+datastore_url: "127.0.0.1:6379"
+
+# These are secret keys used for JWT signing and verification.
+# Make sure you override these keys in production by the following environment variables:
+#   RESTFUL_JWT_VERIFICATION_KEY
+#   RESTFUL_JWT_SIGNING_KEY
+jwt.verification_key: "QfCAH04Cob7b71QCqy738vw5XGSnFZ9d"
+jwt.signing_key: "QfCAH04Cob7b71QCqy738vw5XGSnFZ9d"
+jwt.signing_method: "HS256"

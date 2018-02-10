@@ -1,0 +1,41 @@
+syntax = "proto3";  // specify proto version
+
+import "google/protobuf/timestamp.proto";
+
+package proto;
+
+service UserService {
+    rpc Get (UserId) returns (User) {}
+    rpc Create (CreateRequest) returns (UserId) {}
+    rpc Update (UpdateRequest) returns (UserId) {}
+    rpc Delete (UserId) returns (UserId) {}
+}
+
+message UserId {
+    int64 value = 1;
+}
+
+message User {
+    int64 id = 1;
+    string name = 2;
+    string email = 3;
+    string location = 4;
+    string language = 5;
+    google.protobuf.Timestamp created = 6;
+    google.protobuf.Timestamp lastChanged = 7;
+}
+
+message CreateRequest {
+    string name = 1;
+    string email = 2;
+    string location = 3;
+    string language = 4;
+}
+
+message UpdateRequest {
+    int64 id = 1;
+    string name = 2;
+    string email = 3;
+    string location = 4;
+    string language = 5;
+}
