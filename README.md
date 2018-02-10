@@ -1,6 +1,8 @@
 # Tafalk User Store
 This is a user store keeping the application users acting as a [gRPC](https://grpc.io/) server.
 
+![alt text](diagram.png)
+
 ### Before all
 * Have Go
 * Have gRPC
