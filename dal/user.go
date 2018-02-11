@@ -58,7 +58,7 @@ func (dal *UserDal) Create(user *models.User) error {
 		log.WithFields(log.Fields{
 			"username": user.Name,
 			"email": user.Email,
-		}).Error(fmt.Sprintf("getting score of username and/or email failed: '%#v'", err))
+		}).Error(fmt.Sprintf("getting score of username and/or email failed: %v\n", err))
 		return err
 	}
 

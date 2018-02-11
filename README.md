@@ -64,15 +64,28 @@ container with the `ps` commands above.
 Set a *user/pass* for the redis container.
 
 #### Testing
-##### Mocking Redis Server
+In this app, data store testing is adopts the approach that a separate redis docker container is created
+for test usage. However, there are other ways worth trying:
 * [Wrapping for using go-redis way](https://github.com/go-redis/redis/issues/332)
 
 or, if you dare to code through another API anyway:
 
 * [Miniredis](https://github.com/alicebob/miniredis)
 
-### Docker build
-See the `./.dockerfile`
+### Docker
+#### Build
+See the `./Dockerfile`
+
+#### Data Persistence
+A volume is assigned to redis container by `-v` flag (see previous sections).
+
+There is currently no need for a _volume_ or _bind mount_.
+
+### On Kubernetes work
+Once the *container* is build, the logic outside a container (including linking containers) can be built on [Kubernetes](https://kubernetes.io/). 
+
+See:
+* [Expose Pod Information to Containers Through Environment Variables](https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/)
 
 ### Useful links
 * [A full, secure gRPC client & server implementation guide](https://medium.com/pantomath/how-we-use-grpc-to-build-a-client-server-system-in-go-dd20045fa1c2)
