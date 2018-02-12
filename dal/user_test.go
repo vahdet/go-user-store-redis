@@ -3,7 +3,7 @@
 package dal
 
 import (
-	"github.com/vahdet/tafalk-user-store/models"
+	"github.com/vahdet/go-user-store/models"
 	"testing"
 	dockerclient "github.com/docker/docker/client"
 	"github.com/docker/docker/api/types/container"
@@ -16,7 +16,7 @@ import (
 	"strings"
 	"strconv"
 	"github.com/docker/go-connections/nat"
-	"github.com/vahdet/tafalk-user-store/dal/interfaces"
+	"github.com/vahdet/go-user-store/dal/interfaces"
 	"time"
 )
 

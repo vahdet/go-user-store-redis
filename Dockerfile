@@ -1,30 +1,17 @@
-# Two-stage build:
-#    first  FROM prepares a binary file in full environment ~780MB
-#    second FROM takes only binary file ~10MB
+# Start from a Debian image with the latest version of Go installed
+# and a workspace (GOPATH) configured at /go.
+FROM golang
 
-FROM golang:latest AS builder
+# Copy the local package files to the container's workspace.
+# Note: COPY vs ADD: COPY is same as 'ADD', but without the tar and remote URL handling.
+ADD . /go/src/github.com/vahdet/go-user-store
 
-RUN go version
+# Build the outyet command inside the container.
+# RUN set -x && go get github.com/golang/dep/cmd/dep && dep ensure -v
+RUN go install github.com/vahdet/go-user-store
 
-COPY . "/go/src/github.com/vahdet/tafalk-user-store"
-WORKDIR "/go/src/github.com/vahdet/tafalk-user-store"
+# Run the outyet command by default when the container starts.
+ENTRYPOINT /go/bin/go-user-store
 
-RUN set -x && \
-    go get github.com/golang/dep/cmd/dep && \
-    dep ensure -v
-
-RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build  -o /main
-
-CMD ["/main"]
-
+# Document that the service listens on port 5300 .
 EXPOSE 5300
-
-#########
-# second stage to obtain a very small image
-FROM scratch
-
-COPY --from=builder /main .
-
-EXPOSE 5300
-
-CMD ["/main"]

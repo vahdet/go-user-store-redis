@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/tafalk-user-store.iml" filepath="$PROJECT_DIR$/.idea/tafalk-user-store.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/go-user-store.iml" filepath="$PROJECT_DIR$/.idea/go-user-store.iml" />
     </modules>
   </component>
 </project>

@@ -4,18 +4,25 @@ import (
 	"fmt"
 
 	"github.com/go-redis/redis"
-	"github.com/vahdet/tafalk-user-store/app"
 	log "github.com/sirupsen/logrus"
+	"os"
+)
+
+const (
+	redisUrlKey = "USER_STORE_REDIS_URL"
 )
 
 var client *redis.Client
 
+// Initializes the data store client (i.e. Redis)
 func InitDataStoreClient() {
-	redisUrl := app.Config.DataStoreUrl
-
+	redisUrl := os.Getenv(redisUrlKey)
+	log.WithFields(log.Fields{
+		"url": redisUrl,
+	}).Info(fmt.Sprintf("redis client starting..."))
 	client = redis.NewClient(&redis.Options{
 		Addr:     redisUrl,
-		Password: "", // no password set
+		Password: "", //TODO: Set Password
 		DB:       0,  // use default DB
 	})
 
@@ -30,6 +37,8 @@ func InitDataStoreClient() {
 	return
 }
 
+// Ends the data store client (i.e. Redis)
 func CloseDataStoreClient() {
+	log.Info(fmt.Sprintf("redis client closing..."))
 	client.Close()
 }

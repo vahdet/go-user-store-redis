@@ -7,6 +7,8 @@ This is a user store keeping the application users acting as a [gRPC](https://gr
 * Have Go
 * Have gRPC
 * Have Docker
+* Set Environment variables:
+    * `USER_STORE_REDIS_URL` (used in `./dal/client.go`)
 
 installed.
 ### gRPC settings
@@ -74,21 +76,39 @@ or, if you dare to code through another API anyway:
 
 ### Docker
 #### Build
-See the `./Dockerfile`
+> See the `./Dockerfile`
+
+Run the following command in the root directory in order to build as specified in the `Dockerfile`
+```Dockerfile
+docker image build -t go-user-store .
+``` 
+
+This will create an image named `go-user-store` locally.
+
+> You can check the docker images by the command and check `go-user-store` is listed:
+>
+> ```sh
+> docker image ls
+> ```
+
+#### Run
+To run a container out of the image, run the following command
+
+```
+docker container run --publish 5300:5300 --name my-goddamn-user-store --rm outyet
+```
+
+It binds the _internal port_ `5300` to _external port_ `5300`. Change the one **before colon** if you want to expose the container through a different port.
+
+#### Push to Docker Hub
+
+See [Pushing and Pulling to and from Docker Hub](https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html)
 
 #### Data Persistence
 A volume is assigned to redis container by `-v` flag (see previous sections).
 
-There is currently no need for a _volume_ or _bind mount_.
+There is currently no need for a _volume_ or _bind mount_ for the go code.
 
-### On Kubernetes
-Once the *container* is build, the logic outside a container (including linking containers) can be built on [Kubernetes](https://kubernetes.io/). 
-
-See:
-* [Expose Pod Information to Containers Through Environment Variables](https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/)
-* [Creating a Pod that runs two Containers](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers)
-* [Configuring Redis using a ConfigMap](https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/)
-* [Diego Pacheco's Beautiful 'Go and Redis running on Kubernetes with Minukube'](http://diego-pacheco.blogspot.com.tr/2017/08/go-and-redis-running-on-kubernetes-with.html)
 ### Useful links
 * [A full, secure gRPC client & server implementation guide](https://medium.com/pantomath/how-we-use-grpc-to-build-a-client-server-system-in-go-dd20045fa1c2)
 * GOENV and environment specific settings??

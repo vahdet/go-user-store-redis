@@ -21,6 +21,7 @@ type appConfig struct {
 	JWTVerificationKey string `mapstructure:"jwt.verification_key"`
 }
 
+// Deprecated read from env variables instead of files
 // LoadConfig loads configuration from the given list of paths and populates it into the Config variable.
 // The configuration file(s) should be named as app.yaml.
 // Environment variables with the prefix "RESTFUL_" in their names are also read automatically.

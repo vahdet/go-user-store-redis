@@ -2,10 +2,10 @@ package services
 
 import (
 	log "github.com/sirupsen/logrus"
-	"github.com/vahdet/tafalk-user-store/models"
+	"github.com/vahdet/go-user-store/models"
 	"gopkg.in/go-playground/validator.v9"
 	"fmt"
-	"github.com/vahdet/tafalk-user-store/dal/interfaces"
+	"github.com/vahdet/go-user-store/dal/interfaces"
 )
 
 var validate *validator.Validate

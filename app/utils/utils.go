@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"github.com/vahdet/tafalk-user-store/models"
-	pb "github.com/vahdet/tafalk-user-store/proto"
+	"github.com/vahdet/go-user-store/models"
+	pb "github.com/vahdet/go-user-store/proto"
 	"github.com/golang/protobuf/ptypes"
 	log "github.com/sirupsen/logrus"
 	"fmt"

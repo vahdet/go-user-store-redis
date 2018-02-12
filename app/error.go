@@ -8,6 +8,7 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
+// Deprecated read from env variables instead of files
 type (
 	// Params is used to replace placeholders in an error template with the corresponding values.
 	Params map[string]interface{}
@@ -33,6 +34,7 @@ type (
 
 var templates map[string]errorTemplate
 
+// Deprecated read from env variables instead of files
 func LoadMessages(file string) error {
 	bytes, err := ioutil.ReadFile(file)
 	if err != nil {

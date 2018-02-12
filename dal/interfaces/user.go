@@ -1,6 +1,6 @@
 package interfaces
 
-import "github.com/vahdet/tafalk-user-store/models"
+import "github.com/vahdet/go-user-store/models"
 type (
 	UserDal interface {
 		Get(id int64) (*models.User, error)

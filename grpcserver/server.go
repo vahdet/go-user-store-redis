@@ -4,11 +4,11 @@ import (
 	"fmt"
 
 	log "github.com/sirupsen/logrus"
-	pb "github.com/vahdet/tafalk-user-store/proto"
+	pb "github.com/vahdet/go-user-store/proto"
 	"golang.org/x/net/context"
 
-	"github.com/vahdet/tafalk-user-store/services/interfaces"
-	"github.com/vahdet/tafalk-user-store/app/utils"
+	"github.com/vahdet/go-user-store/services/interfaces"
+	"github.com/vahdet/go-user-store/app/utils"
 )
 
 type UserServer struct {
