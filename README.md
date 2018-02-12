@@ -1,4 +1,4 @@
-# Tafalk User Store
+# Go User Store
 This is a user store keeping the application users acting as a [gRPC](https://grpc.io/) server.
 
 ![alt text](diagram.png)
@@ -81,12 +81,14 @@ A volume is assigned to redis container by `-v` flag (see previous sections).
 
 There is currently no need for a _volume_ or _bind mount_.
 
-### On Kubernetes work
+### On Kubernetes
 Once the *container* is build, the logic outside a container (including linking containers) can be built on [Kubernetes](https://kubernetes.io/). 
 
 See:
 * [Expose Pod Information to Containers Through Environment Variables](https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/)
-
+* [Creating a Pod that runs two Containers](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers)
+* [Configuring Redis using a ConfigMap](https://kubernetes.io/docs/tutorials/configuration/configure-redis-using-configmap/)
+* [Diego Pacheco's Beautiful 'Go and Redis running on Kubernetes with Minukube'](http://diego-pacheco.blogspot.com.tr/2017/08/go-and-redis-running-on-kubernetes-with.html)
 ### Useful links
 * [A full, secure gRPC client & server implementation guide](https://medium.com/pantomath/how-we-use-grpc-to-build-a-client-server-system-in-go-dd20045fa1c2)
 * GOENV and environment specific settings??
