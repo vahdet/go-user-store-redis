@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/vahdet/go-user-store/app"
 	"github.com/vahdet/go-user-store/dal"
 	"github.com/vahdet/go-user-store/services"
 	"net"
@@ -13,23 +12,18 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
+const (
+	defaultGrpcPort = "5300"
+)
+
 func main() {
-	// Deprecated read from env variables instead of files
-	/*
-	if err := app.LoadConfig("./resources"); err != nil {
-		panic(fmt.Errorf("invalid application configuration: %s", err))
-	}
-	if err := app.LoadMessages(app.Config.ErrorFile); err != nil {
-		panic(fmt.Errorf("failed to read the error message file: %s", err))
-	}
-	*/
 
 	// Initialize DataStore
 	dal.InitDataStoreClient()
 	defer dal.CloseDataStoreClient()
 
 	// Serve GRPC
-	lis, err := net.Listen("tcp", app.Config.GrpcPort)
+	lis, err := net.Listen("tcp", defaultGrpcPort)
 	if err != nil {
 		panic(fmt.Errorf("failed to listen: %v", err))
 	}

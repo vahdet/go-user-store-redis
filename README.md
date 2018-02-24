@@ -16,7 +16,7 @@ Everything starts with designing the [protobuf](https://github.com/google/protob
 (`./proto/user.proto` for this project) and once the messages and services are designed
 (or changed later) the following command should be run:
 ```sh
-cd $GOPATH/src/github.com/vahdet/tafalk-user-store
+cd $GOPATH/src/github.com/vahdet/go-user-store
 protoc -I proto proto/user.proto --go_out=plugins=grpc:proto
 ``` 
 
@@ -108,6 +108,16 @@ See [Pushing and Pulling to and from Docker Hub](https://ropenscilabs.github.io/
 A volume is assigned to redis container by `-v` flag (see previous sections).
 
 There is currently no need for a _volume_ or _bind mount_ for the go code.
+
+### Git Tips for humble beings
+The [StackOverflow answer](https://stackoverflow.com/a/23328996/4636715) resembles three lines of general purpose git commands
+that can be used anytime a change is made and should be committed to `master` branch:
+
+```bash
+git add .
+git commit -a -m "My classical message to be replaced"
+git push
+```
 
 ### Useful links
 * [A full, secure gRPC client & server implementation guide](https://medium.com/pantomath/how-we-use-grpc-to-build-a-client-server-system-in-go-dd20045fa1c2)

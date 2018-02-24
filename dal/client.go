@@ -32,8 +32,9 @@ func InitDataStoreClient() {
 			"url": redisUrl,
 		}).Error(fmt.Sprintf("redis dial failed!\nPong: '%v' \nError: '%v'", pong, err))
 		return
+	} else {
+		log.Debug(pong)
 	}
-	fmt.Println(pong)
 	return
 }
 
