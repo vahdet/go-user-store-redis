@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	log "github.com/sirupsen/logrus"
-	pb "github.com/vahdet/go-user-store/proto"
+	pb "github.com/vahdet/go-user-store-redis/proto"
 	"golang.org/x/net/context"
 
 	"github.com/vahdet/go-user-store/services/interfaces"

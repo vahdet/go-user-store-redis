@@ -1,6 +1,6 @@
 package interfaces
 
-import "github.com/vahdet/go-user-store/models"
+import "github.com/vahdet/go-user-store-redis/models"
 type (
 	UserService interface {
 		Get(id int64) (*models.User, error)

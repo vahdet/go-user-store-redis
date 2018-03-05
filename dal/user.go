@@ -1,7 +1,7 @@
 package dal
 
 import (
-	"github.com/vahdet/go-user-store/models"
+	"github.com/vahdet/go-user-store-redis/models"
 	"github.com/mitchellh/mapstructure"
 	log "github.com/sirupsen/logrus"
 	"github.com/fatih/structs"

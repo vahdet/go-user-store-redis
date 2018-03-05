@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"github.com/vahdet/go-user-store/models"
-	pb "github.com/vahdet/go-user-store/proto"
+	"github.com/vahdet/go-user-store-redis/models"
+	pb "github.com/vahdet/go-user-store-redis/proto"
 	"github.com/golang/protobuf/ptypes"
 	log "github.com/sirupsen/logrus"
 	"fmt"

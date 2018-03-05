@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/vahdet/go-user-store/dal"
-	"github.com/vahdet/go-user-store/services"
+	"github.com/vahdet/go-user-store-redis/dal"
+	"github.com/vahdet/go-user-store-redis/services"
 	"net"
-	pb "github.com/vahdet/go-user-store/proto"
+	pb "github.com/vahdet/go-user-store-redis/proto"
 	"google.golang.org/grpc"
-	"github.com/vahdet/go-user-store/grpcserver"
+	"github.com/vahdet/go-user-store-redis/grpcserver"
 	"google.golang.org/grpc/reflection"
 	log "github.com/sirupsen/logrus"
 )
