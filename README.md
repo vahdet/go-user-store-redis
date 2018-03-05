@@ -1,7 +1,7 @@
 # Go User Store
 This is a user store keeping the application users acting as a [gRPC](https://grpc.io/) server.
 
-It listens to the port **5301**.
+It listens to the port **5300**.
 
 ![alt text](diagram.png)
 
