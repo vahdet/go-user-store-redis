@@ -7,8 +7,8 @@ import (
 	pb "github.com/vahdet/go-user-store-redis/proto"
 	"golang.org/x/net/context"
 
-	"github.com/vahdet/go-user-store/services/interfaces"
-	"github.com/vahdet/go-user-store/app/utils"
+	"github.com/vahdet/go-user-store-redis/services/interfaces"
+	"github.com/vahdet/go-user-store-redis/app/utils"
 )
 
 type UserServer struct {
